@@ -143,7 +143,7 @@ typedef struct
 } report_finger_info_t;
 
 #define MAX_NUM_FINGER	10
-#define USE_NUM_FINGER	3
+#define USE_NUM_FINGER	5
 static report_finger_info_t fingerInfo[MAX_NUM_FINGER];
 
 /* firmware 2009.09.24 CHJ - start 1/2 */
@@ -3780,7 +3780,7 @@ void qt602240_release_all_finger()
 		input_report_abs(qt602240->input_dev, ABS_MT_POSITION_X, fingerInfo[i].x);
 		input_report_abs(qt602240->input_dev, ABS_MT_POSITION_Y, fingerInfo[i].y);
 		input_report_abs(qt602240->input_dev, ABS_MT_TOUCH_MAJOR, 0);
-		input_report_abs(qt602240->input_dev, ABS_MT_WIDTH_MAJOR, fingerInfo[i].size_id);		// Size 대신 ID 전달
+		input_report_abs(qt602240->input_dev, ABS_MT_WIDTH_MAJOR, fingerInfo[i].size_id);		// Size \B4\EB\BD\C5 ID \C0\FC\B4\DE
 		input_mt_sync(qt602240->input_dev);
 		update_finger = 1;
 	#if 1
